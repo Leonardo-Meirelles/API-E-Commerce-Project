@@ -1,4 +1,3 @@
-
 module.exports = {
 
   username: 'girjdzwl',
@@ -11,5 +10,4 @@ module.exports = {
     timestamps: true,
     underscored: true
   }
-
 }
