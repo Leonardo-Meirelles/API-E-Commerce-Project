@@ -1,9 +1,9 @@
-const ordersController = require('../../controllers/ordersController')
+const { getAllOrders } = require('../../controllers/ordersController')
 
 module.exports = (router) => {
 
     router.route('/orders')
-        .get(ordersController.getAllOrders)
+        .get(getAllOrders)
 
     // router.route('/orders')
     //     .post(ordersController.postOneOrder)

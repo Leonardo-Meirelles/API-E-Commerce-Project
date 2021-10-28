@@ -1,27 +1,27 @@
-const brazilianProductsService = require('../services/brazilianProductsService')
+const { getBrazilianProductsAll, getBrazilianProductsById } = require('../services/brazilianProductsService')
 
-const getAllProducts = async (req, res, next) => {
+const getAllProductsBr = async (req, res, next) => {
 
     try {
 
-        const products = await brazilianProductsService.getBrazilianProductsAll()
-        
+        const products = await getBrazilianProductsAll()
+
         res.status(200).json(products)
-        
+
     } catch (error) {
 
         res.status(400).json(error)
     }
 }
 
-const getProductById = async (req, res, next) => {
+const getProductByIdBr = async (req, res, next) => {
 
     try {
 
         const { id } = req.params
-        
-        const product = await brazilianProductsService.getBrazilianProductsById(id)
-        
+
+        const product = await getBrazilianProductsById(id)
+
         res.status(200).json(product)
 
     } catch (error) {
@@ -31,6 +31,6 @@ const getProductById = async (req, res, next) => {
 }
 
 module.exports = {
-    getAllProducts,
-    getProductById
+    getAllProductsBr,
+    getProductByIdBr
 }

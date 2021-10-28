@@ -1,12 +1,10 @@
 const ordersRouter = require('./routing/ordersRouter')
-const brazilianProductsRouter = require('./routing/brazilianProductsRouter')
-const europeanProductsRouter = require('./routing/europeanProductsRouter')
+const productsRouter = require('./routing/productsRouter')
 
 module.exports = (api, router) => {
     
     ordersRouter(router)
-    brazilianProductsRouter(router)
-    europeanProductsRouter(router)
+    productsRouter(router)
 
     api.use('', router)
 }
