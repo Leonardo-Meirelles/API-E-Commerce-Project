@@ -21,15 +21,16 @@ module.exports = {
         }
       },
 
-      product_name: {
+      product_id: {
         allowNull: false,
         type: Sequelize.TEXT
       },
 
-      orderQuantity: {
-        type: Sequelize.INTEGER,
-        allowNull: false
+      product_vendor: {
+        allowNull: false,
+        type: Sequelize.TEXT
     },
+
 
       order_price: {
         allowNull: false,
@@ -53,4 +54,4 @@ module.exports = {
 
     return queryInterface.dropTable('orders')
   }
-}
+};

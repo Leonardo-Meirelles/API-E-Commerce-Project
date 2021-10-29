@@ -1,10 +1,8 @@
-const { getAllOrders } = require('../../controllers/ordersController')
+const { postOrders } = require('../../controllers/ordersController');
+const { userSchema } = require('../../schemas/userSchema');
 
 module.exports = (router) => {
 
     router.route('/orders')
-        .get(getAllOrders)
-
-    // router.route('/orders')
-    //     .post(ordersController.postOneOrder)
-}
+        .post(postOrders);
+};

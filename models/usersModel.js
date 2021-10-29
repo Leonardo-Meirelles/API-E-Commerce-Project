@@ -1,6 +1,6 @@
 module.exports = (sequelize, DataTypes) => {
 
-  const user = sequelize.define('usersModel',
+  const User = sequelize.define('usersModel',
     {
       userName: {
         type: DataTypes.TEXT,
@@ -19,13 +19,13 @@ module.exports = (sequelize, DataTypes) => {
     }
   )
 
-  user.associate = (db) => {
+  User.associate = (db) => {
 
-    user.hasMany(db.ordersModel, {
+    User.hasMany(db.ordersModel, {
       foreignKey: 'userId',
       as: 'order'
     })
   }
 
-  return user
-}
+  return User
+};

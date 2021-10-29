@@ -10,11 +10,11 @@ const getAllProductsNames = async (req, res, next) => {
         const brProducts = await getBrazilianProductsAll();
 
         const namesEu = euroProducts.map((product) => {
-            return product.name
+            return {label: product.name, vendor: 'european', id: product.id}
         });
 
         const namesBr = brProducts.map((product) => {
-            return product.nome
+            return {label: product.nome, vendor: 'brazilian', id: product.id}
         });
 
         res.status(200).json({ namesEu, namesBr })

@@ -1,10 +1,15 @@
-const { body, params } = require('express-validator')
-const { validateDTO } = require('../utils/handlers')
+const { body } = require('express-validator');
+const { validateDTO } = require('../utils/handlers');
 
-module.exports = userSchema = validateDTO([
-    body("email")
+exports.userSchema = validateDTO([
+    body('name')
         .notEmpty()
-        .withMessage("O campo e-mail não pode ser vazio")
+        .withMessage('Name cannot be empty')
+        .isString()
+        .withMessage('Name must be a string'),
+    body('email')
+        .notEmpty()
+        .withMessage('Email cannot be empty')
         .isEmail()
-        .withMessage("O campo e-mail deve passar o tipo email"),
+        .withMessage('Email must be in email format'),
 ]);

@@ -1,43 +1,43 @@
 module.exports = (sequelize, DataTypes) => {
 
-  const order = sequelize.define('ordersModel',
-      {
-          userId: {
-              type: DataTypes.INTEGER,
-              allowNull: false
-          },
+    const Order = sequelize.define('ordersModel',
+        {
+            userId: {
+                type: DataTypes.INTEGER,
+                allowNull: false
+            },
 
-          productName: {
-            allowNull: false,
-            type: DataTypes.TEXT
-          },
+            productId: {
+                allowNull: false,
+                type: DataTypes.TEXT
+            },
 
-          orderQuantity: {
-              type: DataTypes.INTEGER,
-              allowNull: false
-          },
+            productVendor: {
+                allowNull: false,
+                type: DataTypes.TEXT
+            },
+            
+            orderPrice: {
+                type: DataTypes.DECIMAL(10, 2),
+                allowNull: false
+            }
+        },
 
-          orderPrice: {
-              type: DataTypes.DECIMAL(10, 2),
-              allowNull: false
-          }
-      },
+        {
+            tableName: 'orders',
 
-      {
-          tableName: 'orders',
+        }
+    )
 
-      }
-  )
+    Order.associate = (db) => {
 
-  order.associate = (db) => {
+        Order.belongsTo(db.usersModel, {
+            foreignKey: 'userId',
+            as: 'user'
+        })
 
-      order.belongsTo(db.usersModel, {
-          foreignKey: 'userId',
-          as: 'user'
-      })
-
-  }
+    }
 
 
-  return order
-}
+    return Order
+};
