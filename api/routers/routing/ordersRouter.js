@@ -4,5 +4,5 @@ const { userSchema } = require('../../schemas/userSchema');
 module.exports = (router) => {
 
     router.route('/orders')
-        .post(postOrders);
+        .post(userSchema, postOrders);
 };
